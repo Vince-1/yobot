@@ -104,12 +104,12 @@ class Gacha:
             last_day = today
             day_times = 0
         if day_limit != 0 and day_times >= day_limit:
-            return "{}今天已经抽了{}次了，明天再来吧".format(nickname, day_times)
+            return "{}今天已经{}发了，请节制自己，明天再来吧".format(nickname, day_times)
         result = self.result()
         times += 1
         day_times += 1
         reply = ""
-        reply += "{}第{}抽：".format(nickname, times)
+        reply += "{}第{}发：".format(nickname, times)
         for char in result:
             if char in info:
                 info[char] += 1
@@ -174,7 +174,7 @@ class Gacha:
         flag_fully_30_times = True
         for i in range(1, 31):
             if day_limit != 0 and day_times >= day_limit:
-                reply += "{}抽到第{}发十连时已经达到今日抽卡上限，抽卡结果:".format(nickname, i)
+                reply += "{}第{}发十连时已经达到今日抽卡上限，抽卡结果:".format(nickname, i)
                 flag_fully_30_times = False
                 break
             single_result = self.result()
